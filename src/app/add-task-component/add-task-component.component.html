@@ -1,0 +1,14 @@
+<div class="divAddTask">
+    <div>
+        <form (ngSubmit)="adicionar()">
+            <input class="inputTask" type="text" name="tarefa" id="tarefa" [(ngModel)]="descricao" placeholder="Insira sua tarefa aqui!">
+            <button id="addButton" class="botao" type="submit">Adicionar</button>
+        </form>
+        <app-list-task-component [tarefas]="tarefas"></app-list-task-component>
+    </div>  
+</div>
+
+
+
+
+

@@ -1,0 +1,30 @@
+<label class="listTasks">Lista de Tarefas</label>
+
+<table>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Tarefa
+        </th>
+        <th>
+            Opções
+        </th>
+    </tr>
+    <tr *ngFor="let tarefa of tarefas" id="linhaTabela">
+        <td>
+            <span>{{ tarefa.id }}</span>
+            
+        </td>
+        <td>
+           <span contenteditable="true" (keyup)="changeValue(tarefa.id, 'descricao', $event)">{{ tarefa.descricao }}</span>
+           <img class="image" src="https://i.pinimg.com/originals/46/93/ba/4693ba7c63042a6950658d434ca8e55d.png">
+        </td>
+        <td>
+            <button class="botao" id="deleteButton" (click)="deletarTarefa(tarefa)" style="background-color: rgb(255, 0, 0); border-color: red; " type="submit">Deletar</button>
+        </td>
+    </tr>
+</table>
+
+
