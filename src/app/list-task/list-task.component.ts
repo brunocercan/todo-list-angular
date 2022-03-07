@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Tarefa } from '../todo-list/tarefa.interface';
 
 
@@ -12,6 +12,9 @@ export class ListTaskComponent implements OnInit {
 
   @Input() tarefas: Tarefa[] = [];
   @Output() aoRemover = new EventEmitter<any>();
+
+  @ViewChild("tarefaDesc") tarefaDesc: HTMLElement;
+
   
   isEditing: boolean = false;
   index = 0;
@@ -19,13 +22,8 @@ export class ListTaskComponent implements OnInit {
 
   constructor() { }
 
-  updateList(id: number, property: string, event: any) {
-    const editField = event.target.textContent;
-    this.tarefas[id][property] = editField;
-  }
-
-  changeValue(id: number, property: string, event: any) {
-    this.editField = event.target.textContent;
+  changeValue(HTMLElement) {
+    HTMLElement.focus();
   }
 
   deletar(tarefa: Tarefa) {
