@@ -17,8 +17,6 @@ export class ListTaskComponentComponent implements OnInit {
   descricao: string;
   id = 0;
 
-
-
   constructor() { }
 
   updateList(id: number, property: string, event: any) {
@@ -34,7 +32,6 @@ export class ListTaskComponentComponent implements OnInit {
   deletarTarefa(tarefa){
     this.index = this.tarefas.indexOf(tarefa)
     this.tarefas.splice(this.index, 1);
-    // console.log(this.index);
   }
 
   ngOnInit(): void {

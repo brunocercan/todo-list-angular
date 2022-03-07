@@ -9,9 +9,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'projeto_todolist';
   tarefas: any[] = [];
-
-  // adicionar($event){
-  //   this.tarefas.push($event);
-  // }
   
 }
