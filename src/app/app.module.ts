@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { TodoListComponentComponent } from './todo-list-component/todo-list-component.component';
-import { AddTaskComponentComponent } from './add-task-component/add-task-component.component';
-import { ListTaskComponentComponent } from './list-task-component/list-task-component.component';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { ListTaskComponent } from './list-task/list-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponentComponent,
-    AddTaskComponentComponent,
-    ListTaskComponentComponent
+    AddTaskComponent,
+    TodoListComponent,
+    ListTaskComponent
   ],
   imports: [
     BrowserModule,

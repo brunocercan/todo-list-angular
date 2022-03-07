@@ -1,21 +1,21 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Tarefa } from '../todo-list-component/tarefa.interface';
+import { Tarefa } from '../todo-list/tarefa.interface';
+
+
 
 @Component({
-  selector: 'app-list-task-component',
-  templateUrl: './list-task-component.component.html',
-  styleUrls: ['./list-task-component.component.scss']
+  selector: 'app-list-task',
+  templateUrl: './list-task.component.html',
+  styleUrls: ['./list-task.component.scss']
 })
-export class ListTaskComponentComponent implements OnInit {
+export class ListTaskComponent implements OnInit {
 
   @Input() tarefas: Tarefa[] = [];
-  @Output() aoSalvar = new EventEmitter<any>();
+  @Output() aoRemover = new EventEmitter<any>();
+  
   isEditing: boolean = false;
   index = 0;
   editField: string;
-
-  descricao: string;
-  id = 0;
 
   constructor() { }
 
@@ -28,10 +28,8 @@ export class ListTaskComponentComponent implements OnInit {
     this.editField = event.target.textContent;
   }
 
-
-  deletarTarefa(tarefa){
-    this.index = this.tarefas.indexOf(tarefa)
-    this.tarefas.splice(this.index, 1);
+  deletar(tarefa: Tarefa) {
+    this.aoRemover.emit(this.tarefas.splice( this.tarefas.indexOf(tarefa), 1 ));
   }
 
   ngOnInit(): void {
