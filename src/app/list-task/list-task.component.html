@@ -17,7 +17,7 @@
     </tr>
     <tr *ngFor="let tarefa of tarefas" id="linhaTabela">
         <td>
-            <input #doneBox (change)="setCompleted(tarefaDesc)" type="checkbox">
+            <input #doneBox (change)="setCompleted(tarefaDesc, tarefa)" type="checkbox">
         </td>
         <td>
             <span>{{ tarefa.id }}</span>

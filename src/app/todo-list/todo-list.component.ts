@@ -17,7 +17,7 @@ export class TodoListComponent implements OnInit {
   
   adicionar(){
     this.id +=1;
-    const tarefaNova = { id: this.id, descricao: this.descricao };
+    const tarefaNova = { id: this.id, descricao: this.descricao, isCompleted: false};
     this.tarefas.push(tarefaNova);
   }
   

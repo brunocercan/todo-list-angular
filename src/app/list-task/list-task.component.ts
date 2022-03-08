@@ -30,9 +30,10 @@ export class ListTaskComponent implements OnInit {
     this.aoRemover.emit(this.tarefas.splice( this.tarefas.indexOf(tarefa), 1 ));
   }
 
-  setCompleted(HTMLElement) {
-    this.isCompleted = !this.isCompleted;
-    if(this.isCompleted){
+  setCompleted(HTMLElement, tarefa: Tarefa) {
+    tarefa.isCompleted = !tarefa.isCompleted
+    console.log(tarefa.isCompleted)
+    if(tarefa.isCompleted){
       this.renderer.setStyle(HTMLElement, 'text-decoration', 'line-through')
     } else {
       this.renderer.setStyle(HTMLElement, 'text-decoration', 'none')
