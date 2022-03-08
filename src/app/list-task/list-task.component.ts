@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { ChildActivationEnd } from '@angular/router';
 import { Tarefa } from '../todo-list/tarefa.interface';
 
 
@@ -15,12 +16,11 @@ export class ListTaskComponent implements OnInit {
 
   @ViewChild("tarefaDesc") tarefaDesc: HTMLElement;
 
-  
-  isEditing: boolean = false;
   index = 0;
+  isCompleted = false;
   editField: string;
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   changeValue(HTMLElement) {
     HTMLElement.focus();
@@ -28,6 +28,15 @@ export class ListTaskComponent implements OnInit {
 
   deletar(tarefa: Tarefa) {
     this.aoRemover.emit(this.tarefas.splice( this.tarefas.indexOf(tarefa), 1 ));
+  }
+
+  setCompleted(HTMLElement) {
+    this.isCompleted = !this.isCompleted;
+    if(this.isCompleted){
+      this.renderer.setStyle(HTMLElement, 'text-decoration', 'line-through')
+    } else {
+      this.renderer.setStyle(HTMLElement, 'text-decoration', 'none')
+    }
   }
 
   ngOnInit(): void {
