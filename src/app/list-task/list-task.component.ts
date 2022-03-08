@@ -17,7 +17,6 @@ export class ListTaskComponent implements OnInit {
   @ViewChild("tarefaDesc") tarefaDesc: HTMLElement;
 
   index = 0;
-  isCompleted = false;
   editField: string;
 
   constructor(private renderer: Renderer2) { }
