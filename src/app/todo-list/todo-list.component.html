@@ -1,0 +1,18 @@
+<div class="div">
+    <img class="image" src="https://icon-library.com/images/icon-list/icon-list-15.jpg">
+    <label class="label">MyTaskList</label>
+    
+</div>
+<div class="div_list">
+    <app-add-task (aoAdicionar)="adicionar()">
+    </app-add-task>
+    <div class="divAddTask">
+        <div>
+            <form (ngSubmit)="adicionar()">
+                <input class="inputTask" type="text" name="tarefa" id="tarefa" [(ngModel)]="descricao" placeholder="Insira sua tarefa aqui!">
+                <button id="addButton" class="botao" type="submit">Adicionar</button>
+            </form>
+            <app-list-task [tarefas]="tarefas"></app-list-task>
+        </div>  
+    </div>
+</div>
